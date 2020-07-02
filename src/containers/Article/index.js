@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
 import ARTICLE_QUERY from "../../queries/article/article";
+import { Container } from "react-bootstrap";
 
 const Article = () => {
   let { id } = useParams();
@@ -16,7 +17,7 @@ const Article = () => {
             ? article.image.url
             : process.env.REACT_APP_BACKEND_URL + article.image.url;
         return (
-          <div>
+          <Container>
             <div
               id="banner"
               className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
@@ -35,7 +36,7 @@ const Article = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </Container>
         );
       }}
     </Query>
