@@ -15,7 +15,7 @@ const Nav = () => {
                 <div className="uk-navbar-left">
                   <ul className="uk-navbar-nav">
                     <li>
-                      <Link to="/">Strategic Management</Link>
+                      <Link to="/">Strategic Management Blog</Link>
                     </li>
                   </ul>
                 </div>
