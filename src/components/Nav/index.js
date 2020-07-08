@@ -1,43 +1,63 @@
 import React from "react";
 import Query from "../Query";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 
 import CATEGORIES_QUERY from "../../queries/category/categories";
 
-const Nav = () => {
+const Navigation = () => {
   return (
     <div>
       <Query query={CATEGORIES_QUERY} id={null}>
         {({ data: { categories } }) => {
           return (
-            <div>
-              <nav className="uk-navbar-container" data-uk-navbar>
-                <div className="uk-navbar-left">
-                  <ul className="uk-navbar-nav">
-                    <li>
-                      <Link to="/">Strategic Management Blog</Link>
-                    </li>
-                  </ul>
-                </div>
+            <React.Fragment>
+              <Navbar
+                collapseOnSelect
+                expand="lg"
+                variant="dark"
+                style={{ backgroundColor: "cornflowerblue", zIndex: "100" }}
+                className="nav"
+              >
+                <Navbar.Brand as={Link} to="/">
+                  {/* <img
+                    alt="TickerCorrelate"
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                  />{" "} */}
+                  StrategicManagement.io
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="ml-auto">
+                    <NavDropdown title="Categories" id="collasible-nav-dropdown">
 
-                <div className="uk-navbar-right">
-                  <ul className="uk-navbar-nav">
                     {categories.map((category, i) => {
                       return (
-                        <li key={category.id}>
-                          <Link
-                            to={`/category/${category.id}`}
-                            className="uk-link-reset"
-                          >
-                            {category.name}
-                          </Link>
-                        </li>
+                        <NavDropdown.Item key={category.id}>
+                            <Link
+                              to={`/category/${category.id}`}
+                              className="uk-link-reset"
+                            >
+                              {category.name}
+                            </Link>
+                        </NavDropdown.Item>
                       );
                     })}
-                  </ul>
-                </div>
-              </nav>
-            </div>
+                    </NavDropdown>
+                    <Nav.Link>
+                      About
+                    </Nav.Link>
+                    <Nav.Link >
+                        Contact
+                    </Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
+            </React.Fragment>
           );
         }}
       </Query>
@@ -45,4 +65,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navigation;
