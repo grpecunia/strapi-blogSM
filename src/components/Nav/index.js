@@ -3,6 +3,8 @@ import Query from "../Query";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import logo from "../../images/logo192.png"
+
 
 import CATEGORIES_QUERY from "../../queries/category/categories";
 
@@ -17,17 +19,17 @@ const Navigation = () => {
                 collapseOnSelect
                 expand="lg"
                 variant="dark"
-                style={{ backgroundColor: "cornflowerblue", zIndex: "100" }}
+                style={{ backgroundColor: "black", zIndex: "100" }}
                 className="nav"
               >
                 <Navbar.Brand as={Link} to="/">
-                  {/* <img
-                    alt="TickerCorrelate"
+                  <img
+                    alt="Strategic Management"
                     src={logo}
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
-                  />{" "} */}
+                  />{" "}
                   StrategicManagement.io
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
